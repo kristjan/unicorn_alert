@@ -5,7 +5,7 @@ html, body {
 
 /* line 28, ../sass/app.sass */
 body {
-  font-size: 36px;
+  font-size: 24px;
   background-color: white;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9999ff), color-stop(100%, #ddddff));
   background: -webkit-linear-gradient(#9999ff, #ddddff);
@@ -16,24 +16,20 @@ body {
   font-family: "Fascinate", cursive;
   font-family: "Fredoka One", cursive;
   font-family: "Gorditas", cursive;
-  font-size: 24px;
   color: red;
 }
 
-/* line 38, ../sass/app.sass */
+/* line 37, ../sass/app.sass */
 a {
   text-decoration: none;
   color: red;
 }
 
 /* line 42, ../sass/app.sass */
-.tweets {
-  width: 50%;
-  margin: 0 25%;
-}
-/* line 45, ../sass/app.sass */
 .tweets .tweet {
-  padding: 20px;
+  width: 50%;
+  margin: 0 25% 40px 25%;
+  padding: 20px 20px 30px 20px;
   border-bottom: 1px solid #eeeeee;
   list-style: none;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff84b5), color-stop(100%, #ff5197));
@@ -48,6 +44,9 @@ a {
   -o-border-radius: 10px;
   border-radius: 10px;
   margin-bottom: 40px;
+  -webkit-box-shadow: 0 0 30px 0 rgba(100, 100, 200, 0.4), inset 0 -10px 10px 0 #ff1e79;
+  -moz-box-shadow: 0 0 30px 0 rgba(100, 100, 200, 0.4), inset 0 -10px 10px 0 #ff1e79;
+  box-shadow: 0 0 30px 0 rgba(100, 100, 200, 0.4), inset 0 -10px 10px 0 #ff1e79;
 }
 /* line 52, ../sass/app.sass */
 .tweets .tweet h2 {
@@ -76,4 +75,10 @@ a {
   line-height: 1.4;
   color: #ffeaf2;
   text-shadow: 0 -1px 0 #b7004a;
+}
+/* line 72, ../sass/app.sass */
+.tweets .tweet:first-child {
+  font-size: 34px;
+  width: 60%;
+  margin: 0 20% 40px 20%;
 }
