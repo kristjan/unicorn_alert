@@ -4,14 +4,14 @@ Unicorn = (function() {
   function init() {
     po = org.polymaps;
     initMap();
+    loadUnicorns();
     getTweets();
-
-    load_unicorns();
   }
 
   function initMap() {
     map = po.map()
-            .container(document.getElementById("map").appendChild(po.svg("svg")));
+            .container(document.getElementById("map").appendChild(po.svg("svg")))
+            .add(po.interact());
 
     map.add(po.image()
               .url(po.url("http://{S}tile.cloudmade.com" +
@@ -20,23 +20,30 @@ Unicorn = (function() {
                      .hosts(["a.", "b.", "c.", ""])));
   }
 
-  function load_unicorns(){
+  function loadUnicorns(){
     $.getJSON('/geocorn/sightings', function(data){
-      for (var i=0; i < data.length; i++){
-        var lat = parseFloat(data[i][0]),
-            lon = parseFloat(data[i][1]);
-        load_unicorn(lat, lon);
-      }
-    })
+      buildUnicorns($.map(data, function(geo) {
+        return {
+          lat: parseFloat(geo[0]),
+          lng: parseFloat(geo[1])
+        };
+      }));
+    });
   }
 
-  function load_unicorn(lat, lon) {
-    var marker = po.svg('circle');
-    var mappos = map.locationPoint({lat: lat, lon: lon});
-    marker.setAttribute('r', 2);
-    marker.setAttribute('cx', mappos.x);
-    marker.setAttribute('cy', mappos.y);
-    $('#map svg')[0].appendChild(marker);
+  function buildUnicorns(unicorns) {
+    map.add(po.geoJson().features($.map(unicorns, function(unicorn) {
+      return buildUnicorn(unicorn);
+    })));
+  }
+
+  function buildUnicorn(unicorn) {
+    return {
+      geometry: {
+        coordinates: [unicorn.lng, unicorn.lat],
+        type: 'Point'
+      }
+    };
   }
 
   var REFRESH_RATE = 5000;
@@ -63,7 +70,7 @@ Unicorn = (function() {
   }
 
   return {
-    init : init,
+    init        : init,
     handleTweet : handleTweet
   };
 })();
