@@ -22,19 +22,23 @@ Unicorn = (function() {
 
   function loadUnicorns(){
     $.getJSON('/geocorn/sightings', function(data){
-      buildUnicorns($.map(data, function(geo) {
+      buildUnicorns($.map(data, function(unicorn) {
         return {
-          lat: parseFloat(geo[0]),
-          lng: parseFloat(geo[1])
+          lat: parseFloat(unicorn[0]),
+          lng: parseFloat(unicorn[1]),
+          type: unicorn[2]
         };
       }));
     });
   }
 
   function buildUnicorns(unicorns) {
-    map.add(po.geoJson().features($.map(unicorns, function(unicorn) {
-      return buildUnicorn(unicorn);
-    })));
+    map.add(po.geoJson()
+              .features($.map(unicorns, function(unicorn) {
+                return buildUnicorn(unicorn);
+              }))
+              .on('load', styleUnicorns)
+           );
   }
 
   function buildUnicorn(unicorn) {
@@ -42,8 +46,17 @@ Unicorn = (function() {
       geometry: {
         coordinates: [unicorn.lng, unicorn.lat],
         type: 'Point'
+      },
+      properties: {
+        type: unicorn.type || ''
       }
     };
+  }
+
+  function styleUnicorns(e) {
+    $.each(e.features, function(i, unicorn) {
+      unicorn.element.setAttribute('class', unicorn.data.properties.type);
+    });
   }
 
   var REFRESH_RATE = 5000;
