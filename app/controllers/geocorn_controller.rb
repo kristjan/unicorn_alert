@@ -11,7 +11,6 @@ class GeocornController < ApplicationController
 
   def sightings
     render :json => Crime.crimes[0..1000].map{|crime|
-      Rails.logger.info crime
       crime['Location'][1..2] + [NICE_NAMES[crime['Category']], crime['Descript']]
     }
   end
