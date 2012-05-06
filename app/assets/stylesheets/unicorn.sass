@@ -1,3 +1,42 @@
+//  ____ ___      .__                           
+// |    |   \____ |__| ____  ___________  ____  
+// |    |   /    \|  |/ ___\/  _ \_  __ \/    \ 
+// |    |  /   |  \  \  \__(  <_> )  | \/   |  \
+// |______/|___|  /__|\___  >____/|__|  |___|  /
+//              \/        \/                 \/ 
+//    _____  .__                 __   
+//   /  _  \ |  |   ____________/  |_ 
+//  /  /_\  \|  | _/ __ \_  __ \   __\
+// /    |    \  |_\  ___/|  | \/|  |  
+// \____|__  /____/\___  >__|   |__|  
+//         \/          \/             
+
+@import compass/css3
+@import compass/utilities/general/clearfix
+@import compass/typography/vertical_rhythm
+@import compass/support
+
+$color: red
+$pink : #ff5197
+$fontSize: 24px
+
+
+html, body
+  height: 100%
+
+body
+  font-size: $fontSize
+  background-color: #fff
+  +background( linear-gradient(#99f, #ddf))
+  font-family: 'Fascinate', cursive
+  font-family: 'Fredoka One', cursive
+  font-family: 'Gorditas', cursive
+  color: $color
+
+a
+  text-decoration: none
+  color: $color
+
 #tweets
   float: left
   width: 30%
@@ -8,3 +47,39 @@
 #map
   float: right
   width: 70%
+
+#tweets
+  .tweet
+    width: 50%
+    margin: 0 25% 40px 25%
+    padding: 20px 20px 30px 20px
+    border-bottom: 1px solid #eee
+    list-style: none
+    +background( linear-gradient(lighten($pink, 10%), $pink))
+    +border-radius(10px)
+    margin-bottom: 40px
+    +box-shadow( 0 0 30px 0 rgba(100,100,200,0.4), inset 0 -10px 10px 0 darken($pink, 10))
+    h2
+      font-weight: bold
+      line-height: 1.1
+      margin: 0
+      color: darken($pink, 5%)
+      +text-shadow( 0 1px 0 lighten($pink, 20%), 0 -1px 0 darken($pink, 30%))
+      .userPic
+      float: left
+      margin: 0 10px 0 0
+      padding: 4px
+      border: 1px solid #eee    
+      width: 50px
+      height: 50px
+      a:hover .userPic
+        background: #eee
+      p
+        margin: 0 0 0 76px
+        line-height: 1.4
+        color: lighten($pink, 30%)
+        +text-shadow( 0 -1px 0 darken($pink, 30%))
+  .tweet:first-child
+    font-size: $fontSize + 10
+    width: 60%
+    margin: 0 20% 40px 20%
