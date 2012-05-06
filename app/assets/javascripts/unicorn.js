@@ -6,7 +6,7 @@ Unicorn = (function() {
     initMap();
     getTweets();
 
-    load_unicorn(37.7809035011582, -122.412119695795);
+    load_unicorns();
   }
 
   function initMap() {
@@ -18,6 +18,16 @@ Unicorn = (function() {
                           "/1a1b06b230af4efdbb989ea99e9841af" + // http://cloudmade.com/register
                           "/998/256/{Z}/{X}/{Y}.png")
                      .hosts(["a.", "b.", "c.", ""])));
+  }
+
+  function load_unicorns(){
+    $.getJSON('/geocorn/sightings', function(data){
+      for (var i=0; i < data.length; i++){
+        var lat = parseFloat(data[i][0]),
+            lon = parseFloat(data[i][1]);
+        load_unicorn(lat, lon);
+      }
+    })
   }
 
   function load_unicorn(lat, lon) {
