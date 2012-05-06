@@ -34,8 +34,15 @@ Unicorn = (function() {
     });
   }
 
+  var TWITTER_BASE = 'http://twitter.com';
   function handleTweet(i, tweet) {
-    console.log(tweet.text);
+    $('#tweets').prepend(
+      $('<li>').append(
+        $('<img>', {src: tweet.profile_image_url}),
+        $('<a>', {href: TWITTER_BASE + '/' + tweet.from_user}).text('@' + tweet.from_user),
+        $('<p>').text(tweet.text)
+      )
+    );
   }
 
   return {
