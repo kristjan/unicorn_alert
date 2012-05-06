@@ -1,15 +1,15 @@
-//  ____ ___      .__                           
-// |    |   \____ |__| ____  ___________  ____  
-// |    |   /    \|  |/ ___\/  _ \_  __ \/    \ 
+//  ____ ___      .__
+// |    |   \____ |__| ____  ___________  ____
+// |    |   /    \|  |/ ___\/  _ \_  __ \/    \
 // |    |  /   |  \  \  \__(  <_> )  | \/   |  \
 // |______/|___|  /__|\___  >____/|__|  |___|  /
-//              \/        \/                 \/ 
-//    _____  .__                 __   
-//   /  _  \ |  |   ____________/  |_ 
+//              \/        \/                 \/
+//    _____  .__                 __
+//   /  _  \ |  |   ____________/  |_
 //  /  /_\  \|  | _/ __ \_  __ \   __\
-// /    |    \  |_\  ___/|  | \/|  |  
-// \____|__  /____/\___  >__|   |__|  
-//         \/          \/             
+// /    |    \  |_\  ___/|  | \/|  |
+// \____|__  /____/\___  >__|   |__|
+//         \/          \/
 
 @import compass/reset
 @import compass/css3
@@ -45,6 +45,8 @@ a
 #tweets
   float: left
   width: 50%
+  height: 100%
+  overflow-y: auto
 
 #map
   float: right
@@ -72,7 +74,7 @@ a
         float: left
         margin: 0 10px 0 0
         padding: 4px
-        border: 1px solid #eee    
+        border: 1px solid #eee
         width: 50px
         height: 50px
       a:hover .userPic
@@ -85,7 +87,6 @@ a
   .tweet.top
     +scale(1.0)
     font-size: $fontSize + 10
-
 
 
 .scaleUp
@@ -105,4 +106,21 @@ a
   to
     +scale(1)
 
-
+svg circle
+  fill: #666
+  stroke: #666
+  fill-opacity: 0.6
+  &.sparkles
+    fill: #F00
+  &.rainbows
+    fill: #FF7F00
+  &.glitter
+    fill: #FF0
+  &.unihorns
+    fill: #0F0
+  &.awesome
+    fill: #00F
+  &.magic-rhino
+    fill: #60F
+  &.land-narwhal
+    fill: #8B00FF

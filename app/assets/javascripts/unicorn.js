@@ -4,22 +4,59 @@ Unicorn = (function() {
   function init() {
     po = org.polymaps;
     initMap();
+    loadUnicorns();
     getTweets();
   }
 
   function initMap() {
     map = po.map()
             .container(document.getElementById("map").appendChild(po.svg("svg")))
-            .add(po.interact())
-            .add(po.hash());
+            .add(po.interact());
 
     map.add(po.image()
               .url(po.url("http://{S}tile.cloudmade.com" +
                           "/1a1b06b230af4efdbb989ea99e9841af" + // http://cloudmade.com/register
                           "/998/256/{Z}/{X}/{Y}.png")
                      .hosts(["a.", "b.", "c.", ""])));
+  }
 
-    map.add(po.compass().pan("none"));
+  function loadUnicorns(){
+    $.getJSON('/geocorn/sightings', function(data){
+      buildUnicorns($.map(data, function(unicorn) {
+        return {
+          lat: parseFloat(unicorn[0]),
+          lng: parseFloat(unicorn[1]),
+          type: unicorn[2]
+        };
+      }));
+    });
+  }
+
+  function buildUnicorns(unicorns) {
+    map.add(po.geoJson()
+              .features($.map(unicorns, function(unicorn) {
+                return buildUnicorn(unicorn);
+              }))
+              .on('load', styleUnicorns)
+           );
+  }
+
+  function buildUnicorn(unicorn) {
+    return {
+      geometry: {
+        coordinates: [unicorn.lng, unicorn.lat],
+        type: 'Point'
+      },
+      properties: {
+        type: unicorn.type || ''
+      }
+    };
+  }
+
+  function styleUnicorns(e) {
+    $.each(e.features, function(i, unicorn) {
+      unicorn.element.setAttribute('class', unicorn.data.properties.type);
+    });
   }
 
   var REFRESH_RATE = 500;
@@ -51,7 +88,7 @@ Unicorn = (function() {
   }
 
   return {
-    init : init,
+    init        : init,
     handleTweet : handleTweet
   };
 })();

@@ -47,6 +47,7 @@ UnicornAlert::Application.routes.draw do
   #   end
 
   root :to => 'application#index'
+  get 'geocorn/:action', :controller => :geocorn
 
   # See how all your routes lay out with "rake routes"
 

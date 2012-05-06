@@ -20,12 +20,21 @@
 
 	// particles
 	var particles = [],
-			particleImage = new Image(),
+			blueStar = new Image(),
+			greenStar = new Image(),
+			orangeStar = new Image(),
+			purpleStar = new Image(),
+			redStar = new Image(),
+			yellowStar = new Image(),
 			NEW_PARTICLE_RATE = 5,
 			MAX_PARTICLES = 300;
 
-
-			particleImage.src = 'assets/whitesquare.png'
+	blueStar.src = 'assets/star-blue.png';
+	greenStar.src = 'assets/star-green.png';
+	orangeStar.src = 'assets/star-orange.png';
+	purpleStar.src = 'assets/star-purple.png';
+	redStar.src = 'assets/star-red.png';
+	yellowStar.src = 'assets/star-yellow.png';
 
 
 	/*
@@ -96,6 +105,32 @@
 		for(var i=0; i<particleCount;i++) {
 
 				// create a new particle in the middle of the stage
+				var imgNum = Math.round( (Math.random() * 5));
+
+				switch(imgNum){
+					case 0:
+						particleImage = blueStar;
+						break
+					case 1:
+						particleImage = greenStar;
+						break
+					case 2:
+						particleImage = orangeStar;
+						break
+					case 3:
+						particleImage = purpleStar;
+						break
+					case 4:
+						particleImage = redStar;
+						break
+					case 5:
+						particleImage = yellowStar;
+						break
+					default:
+						particleImage = redStar;
+						break
+				}
+				
 				var particle = new ImageParticle(particleImage, mouseX, mouseY); 
 
 				//var particle = new ImageParticle(particleImage, mouseX, mouseY); 
@@ -103,7 +138,7 @@
 				// give it a random x and y velocity
 				particle.velX = randomRange(-10,10);
 				particle.velY = randomRange(-10,10);
-				particle.size = randomRange(0.1,10);
+				particle.size = randomRange(0.1,2);
 				particle.gravity = 0; 
 				particle.drag = 0.96;
 				particle.shrink = 0.97; 
@@ -113,7 +148,7 @@
 
 
 				// sets the blend mode so particles are drawn with an additive blend
-				particle.compositeOperation = 'lighter';
+				 particle.compositeOperation = 'lighter';
 
 				// add it to the array
 				particles.push(particle);
