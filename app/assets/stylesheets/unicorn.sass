@@ -38,23 +38,31 @@ a
   text-decoration: none
   color: $color
 
-#tweets
-  float: left
-  width: 50%
-  height: 100%
-  overflow-y: auto
+#description
+  position: fixed
+  right: 0
+  bottom: 0
+  width: 40%
+  padding: 20px
+  text-align: right
 
 #map
   float: right
   width: 50%
 
 #tweets
+  float: left
+  width: 50%
+  height: 100%
+  overflow-y: auto
+
   .tweet
     width: 50%
     margin: 0 25% 40px 25%
     padding: 20px 20px 30px 20px
     border-bottom: 1px solid #eee
     list-style: none
+    overflow-x: auto
     +background( linear-gradient(lighten($pink, 10%), $pink))
     +border-radius(10px)
     margin-bottom: 40px
