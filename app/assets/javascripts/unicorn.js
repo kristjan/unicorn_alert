@@ -22,7 +22,7 @@ Unicorn = (function() {
     map.add(po.compass().pan("none"));
   }
 
-  var REFRESH_RATE = 5000;
+  var REFRESH_RATE = 500;
   var TWITTER_SEARCH_BASE = 'http://search.twitter.com/search.json';
   var search_params = '?q=unicorn+OR+unicorns';
   function getTweets() {
@@ -36,13 +36,18 @@ Unicorn = (function() {
 
   var TWITTER_BASE = 'http://twitter.com';
   function handleTweet(i, tweet) {
-    $('#tweets').prepend(
-      $('<li>', {'class': 'tweet'}).append(
-        $('<img>', {src: tweet.profile_image_url}),
-        $('<a>', {href: TWITTER_BASE + '/' + tweet.from_user}).text('@' + tweet.from_user),
-        $('<p>').text(tweet.text)
-      )
-    );
+    $('#tweets').find('.tweet').removeClass('top');
+
+    var listItem = $('<li>', {'class': 'tweet top'}).append(
+        $('<div>', {'class': 'tweetWrapper'}).append(
+          $('<a>', {href: TWITTER_BASE + '/' + tweet.from_user}).append(
+            $('<img>', {'class': 'userPic', src: tweet.profile_image_url}),
+            $('<h2>').text('@' + tweet.from_user),
+            $('<p>').text(tweet.text)
+          )
+        )
+      ).hide().prependTo('#tweets').slideDown(1000);
+    
   }
 
   return {
