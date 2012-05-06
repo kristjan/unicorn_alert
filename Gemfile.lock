@@ -118,6 +118,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   jquery-rails
+  multi_json
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   sqlite3
