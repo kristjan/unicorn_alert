@@ -1,9 +1,13 @@
 Unicorn = (function() {
-  var map;
+  var po, map;
 
   function init() {
-    var po = org.polymaps;
+    po = org.polymaps;
+    initMap();
+    getTweets();
+  }
 
+  function initMap() {
     map = po.map()
             .container(document.getElementById("map").appendChild(po.svg("svg")))
             .add(po.interact())
@@ -18,8 +22,25 @@ Unicorn = (function() {
     map.add(po.compass().pan("none"));
   }
 
+  var REFRESH_RATE = 5000;
+  var TWITTER_SEARCH_BASE = 'http://search.twitter.com/search.json';
+  var search_params = '?q=unicorn+OR+unicorns';
+  function getTweets() {
+    var url = TWITTER_SEARCH_BASE + search_params + '&callback=?';
+    $.getJSON(url, function(data) {
+      search_params = data.refresh_url;
+      $.each(data.results, handleTweet);
+      setTimeout(getTweets, REFRESH_RATE);
+    });
+  }
+
+  function handleTweet(i, tweet) {
+    console.log(tweet.text);
+  }
+
   return {
-    init : init
+    init : init,
+    handleTweet : handleTweet
   };
 })();
 
