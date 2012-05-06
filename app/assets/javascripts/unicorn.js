@@ -10,6 +10,8 @@ Unicorn = (function() {
 
   function initMap() {
     map = po.map()
+            .center({lat:37.76, lon: -122.52})
+            .zoom(13)
             .container(document.getElementById("map").appendChild(po.svg("svg")))
             .add(po.interact());
 
