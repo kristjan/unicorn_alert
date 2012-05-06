@@ -11,6 +11,7 @@
 // \____|__  /____/\___  >__|   |__|  
 //         \/          \/             
 
+@import compass/reset
 @import compass/css3
 @import compass/utilities/general/clearfix
 @import compass/typography/vertical_rhythm
@@ -39,14 +40,11 @@ a
 
 #tweets
   float: left
-  width: 30%
-  margin: 0
-  padding: 0
-  list-style-type: none
+  width: 50%
 
 #map
   float: right
-  width: 70%
+  width: 50%
 
 #tweets
   .tweet
@@ -74,11 +72,11 @@ a
       height: 50px
       a:hover .userPic
         background: #eee
-      p
-        margin: 0 0 0 76px
-        line-height: 1.4
-        color: lighten($pink, 30%)
-        +text-shadow( 0 -1px 0 darken($pink, 30%))
+    p
+      margin: 0 0 0 76px
+      line-height: 1.4
+      color: lighten($pink, 30%)
+      +text-shadow( 0 -1px 0 darken($pink, 30%))
   .tweet:first-child
     font-size: $fontSize + 10
     width: 60%

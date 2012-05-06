@@ -37,7 +37,7 @@ Unicorn = (function() {
   var TWITTER_BASE = 'http://twitter.com';
   function handleTweet(i, tweet) {
     $('#tweets').prepend(
-      $('<li>').append(
+      $('<li>', {'class': 'tweet'}).append(
         $('<img>', {src: tweet.profile_image_url}),
         $('<a>', {href: TWITTER_BASE + '/' + tweet.from_user}).text('@' + tweet.from_user),
         $('<p>').text(tweet.text)

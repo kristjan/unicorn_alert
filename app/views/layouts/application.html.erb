@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-  <title>UnicornAlert</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "unicorn", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <title>✰✰✰ UNICORN ALERT ✰✰✰</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Fascinate|Fredoka+One|Gorditas:400,700' rel='stylesheet' type='text/css' />
+  <%= javascript_include_tag "modernizr-2.5.3.min.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
+
+
+<%= javascript_include_tag "application" %>
 
 </body>
 </html>
