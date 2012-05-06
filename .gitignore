@@ -13,3 +13,19 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Software files #
+######################
+.espresso*
+.sass-cache/*
+Rakefile
+rsync-exclude
