@@ -66,12 +66,12 @@ a
       color: darken($pink, 5%)
       +text-shadow( 0 1px 0 lighten($pink, 20%), 0 -1px 0 darken($pink, 30%))
       .userPic
-      float: left
-      margin: 0 10px 0 0
-      padding: 4px
-      border: 1px solid #eee
-      width: 50px
-      height: 50px
+        float: left
+        margin: 0 10px 0 0
+        padding: 4px
+        border: 1px solid #eee
+        width: 50px
+        height: 50px
       a:hover .userPic
         background: #eee
     p
@@ -83,3 +83,22 @@ a
     font-size: $fontSize + 10
     width: 60%
     margin: 0 20% 40px 20%
+
+svg circle
+  fill: #666
+  stroke: #666
+  fill-opacity: 0.6
+  &.sparkles
+    fill: #F00
+  &.rainbows
+    fill: #FF7F00
+  &.glitter
+    fill: #FF0
+  &.unihorns
+    fill: #0F0
+  &.awesome
+    fill: #00F
+  &.magic-rhino
+    fill: #60F
+  &.land-narwhal
+    fill: #8B00FF
