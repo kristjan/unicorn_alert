@@ -26,7 +26,8 @@ Unicorn = (function() {
         return {
           lat: parseFloat(unicorn[0]),
           lng: parseFloat(unicorn[1]),
-          type: unicorn[2]
+          type: unicorn[2],
+          title: unicorn[3]
         };
       }));
     });
@@ -48,6 +49,7 @@ Unicorn = (function() {
         type: 'Point'
       },
       properties: {
+        title: unicorn.title || '',
         type: unicorn.type || ''
       }
     };
@@ -56,10 +58,27 @@ Unicorn = (function() {
   function styleUnicorns(e) {
     $.each(e.features, function(i, unicorn) {
       unicorn.element.setAttribute('class', unicorn.data.properties.type);
+      unicorn.element.setAttribute('title', unicorn.data.properties.title);
+      unicorn.element.addEventListener('mouseover', function(e) {
+        showDescription(this);
+      });
+      unicorn.element.addEventListener('mouseout', function(e) {
+        clearDescription();
+      });
     });
   }
 
-  var REFRESH_RATE = 500;
+  function showDescription(item) {
+    console.log(item);
+    $('#description').attr('class', item.getAttribute('class')).text(item.getAttribute('title'));
+  }
+
+  function clearDescription() {
+    $('#description').text('');
+  }
+
+  var REFRESH_RATE = 5000;
+
   var TWITTER_SEARCH_BASE = 'http://search.twitter.com/search.json';
   var search_params = '?q=unicorn+OR+unicorns';
   function getTweets() {

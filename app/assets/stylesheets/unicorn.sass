@@ -38,6 +38,7 @@ a
   text-decoration: none
   color: $color
 
+<<<<<<< HEAD
 .canvasWrapper
   position: absolute
   z-index: 10
@@ -47,12 +48,27 @@ a
   width: 50%
   height: 100%
   overflow-y: auto
+=======
+#description
+  position: fixed
+  right: 0
+  bottom: 0
+  width: 40%
+  padding: 20px
+  text-align: right
+  +text-shadow(0 0 5px black)
+>>>>>>> f878212c82362541d77373cc1b3d4d3607665dc6
 
 #map
   float: right
   width: 50%
 
 #tweets
+  float: left
+  width: 50%
+  height: 100%
+  overflow-y: auto
+
   .tweet
     +pie-clearfix
     .tweetWrapper
@@ -106,21 +122,28 @@ a
   to
     +scale(1)
 
-svg circle
+svg circle, #description
   fill: #666
   stroke: #666
   fill-opacity: 0.6
   &.sparkles
+    color: #F00
     fill: #F00
   &.rainbows
+    color: #FF7F00
     fill: #FF7F00
   &.glitter
+    color: #FF0
     fill: #FF0
   &.unihorns
+    color: #0F0
     fill: #0F0
   &.awesome
+    color: #00F
     fill: #00F
   &.magic-rhino
+    color: #60F
     fill: #60F
   &.land-narwhal
+    color: #8B00FF
     fill: #8B00FF
