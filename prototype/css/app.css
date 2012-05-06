@@ -1,71 +1,79 @@
-/* line 20, ../sass/app.sass */
-body {
-  font-size: 36px;
-  background: yellow;
-  font-family: "Fascinate", cursive;
-  font-family: "Fredoka One", cursive;
-  font-family: "Gorditas", cursive;
+/* line 24, ../sass/app.sass */
+html, body {
+  height: 100%;
 }
 
 /* line 28, ../sass/app.sass */
-ol.slats li {
-  margin: 0 0 10px 0;
-  padding: 0 0 10px 0;
-  border-bottom: 1px solid #eeeeee;
-}
-
-/* line 33, ../sass/app.sass */
-ol.slats li:last-child {
-  margin: 0;
-  padding: 0;
-  border-bottom: none;
+body {
+  font-size: 36px;
+  background-color: white;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #9999ff), color-stop(100%, #ddddff));
+  background: -webkit-linear-gradient(#9999ff, #ddddff);
+  background: -moz-linear-gradient(#9999ff, #ddddff);
+  background: -o-linear-gradient(#9999ff, #ddddff);
+  background: -ms-linear-gradient(#9999ff, #ddddff);
+  background: linear-gradient(#9999ff, #ddddff);
+  font-family: "Fascinate", cursive;
+  font-family: "Fredoka One", cursive;
+  font-family: "Gorditas", cursive;
+  font-size: 24px;
+  color: red;
 }
 
 /* line 38, ../sass/app.sass */
-ol.slats li a h3 {
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 1.1;
+a {
+  text-decoration: none;
+  color: red;
 }
 
-/* line 43, ../sass/app.sass */
-ol.slats li a img {
+/* line 42, ../sass/app.sass */
+.tweets {
+  width: 50%;
+  margin: 0 25%;
+}
+/* line 45, ../sass/app.sass */
+.tweets .tweet {
+  padding: 20px;
+  border-bottom: 1px solid #eeeeee;
+  list-style: none;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff84b5), color-stop(100%, #ff5197));
+  background: -webkit-linear-gradient(#ff84b5, #ff5197);
+  background: -moz-linear-gradient(#ff84b5, #ff5197);
+  background: -o-linear-gradient(#ff84b5, #ff5197);
+  background: -ms-linear-gradient(#ff84b5, #ff5197);
+  background: linear-gradient(#ff84b5, #ff5197);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+/* line 52, ../sass/app.sass */
+.tweets .tweet h2 {
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 0;
+  color: #ff3788;
+  text-shadow: 0 1px 0 #ffb7d4, 0 -1px 0 #b7004a;
+}
+/* line 58, ../sass/app.sass */
+.tweets .tweet .userPic {
   float: left;
   margin: 0 10px 0 0;
   padding: 4px;
   border: 1px solid #eeeeee;
+  width: 50px;
+  height: 50px;
 }
-
-/* line 49, ../sass/app.sass */
-ol.slats li a:hover img {
+/* line 65, ../sass/app.sass */
+.tweets .tweet a:hover .userPic {
   background: #eeeeee;
 }
-
-/* line 52, ../sass/app.sass */
-ol.slats li a p {
+/* line 67, ../sass/app.sass */
+.tweets .tweet p {
   margin: 0 0 0 76px;
-  font-size: 14px;
   line-height: 1.4;
-  color: #555555;
-}
-
-/* line 58, ../sass/app.sass */
-ol.slats li a p span.meta {
-  display: block;
-  font-size: 12px;
-  color: #999999;
-}
-
-@media screen and (max-width: 700px) {
-  /* line 64, ../sass/app.sass */
-  ol.slats li a img {
-    display: block;
-    float: none;
-    margin: 0 0 5px 0;
-  }
-
-  /* line 69, ../sass/app.sass */
-  ol.slats li a p {
-    margin: 0;
-  }
+  color: #ffeaf2;
+  text-shadow: 0 -1px 0 #b7004a;
 }

@@ -26,6 +26,7 @@ Thumbs.db
 # Software files #
 ######################
 .espresso*
-.sass-cache/*
+/.sass-cache
+/prototype/.sass-cache
 Rakefile
 rsync-exclude
