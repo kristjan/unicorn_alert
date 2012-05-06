@@ -45,6 +45,7 @@ a
   width: 40%
   padding: 20px
   text-align: right
+  +text-shadow(0 0 5px black)
 
 #map
   float: right
@@ -92,21 +93,28 @@ a
     width: 60%
     margin: 0 20% 40px 20%
 
-svg circle
+svg circle, #description
   fill: #666
   stroke: #666
   fill-opacity: 0.6
   &.sparkles
+    color: #F00
     fill: #F00
   &.rainbows
+    color: #FF7F00
     fill: #FF7F00
   &.glitter
+    color: #FF0
     fill: #FF0
   &.unihorns
+    color: #0F0
     fill: #0F0
   &.awesome
+    color: #00F
     fill: #00F
   &.magic-rhino
+    color: #60F
     fill: #60F
   &.land-narwhal
+    color: #8B00FF
     fill: #8B00FF

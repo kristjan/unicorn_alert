@@ -69,7 +69,8 @@ Unicorn = (function() {
   }
 
   function showDescription(item) {
-    $('#description').text(item.getAttribute('title'));
+    console.log(item);
+    $('#description').attr('class', item.getAttribute('class')).text(item.getAttribute('title'));
   }
 
   function clearDescription() {
