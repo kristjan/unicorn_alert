@@ -5,21 +5,28 @@ Unicorn = (function() {
     po = org.polymaps;
     initMap();
     getTweets();
+
+    load_unicorn(37.7809035011582, -122.412119695795);
   }
 
   function initMap() {
     map = po.map()
-            .container(document.getElementById("map").appendChild(po.svg("svg")))
-            .add(po.interact())
-            .add(po.hash());
+            .container(document.getElementById("map").appendChild(po.svg("svg")));
 
     map.add(po.image()
               .url(po.url("http://{S}tile.cloudmade.com" +
                           "/1a1b06b230af4efdbb989ea99e9841af" + // http://cloudmade.com/register
                           "/998/256/{Z}/{X}/{Y}.png")
                      .hosts(["a.", "b.", "c.", ""])));
+  }
 
-    map.add(po.compass().pan("none"));
+  function load_unicorn(lat, lon) {
+    var marker = po.svg('circle');
+    var mappos = map.locationPoint({lat: lat, lon: lon});
+    marker.setAttribute('r', 2);
+    marker.setAttribute('cx', mappos.x);
+    marker.setAttribute('cy', mappos.y);
+    $('#map svg')[0].appendChild(marker);
   }
 
   var REFRESH_RATE = 5000;
