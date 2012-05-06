@@ -45,7 +45,7 @@
 		// Canvas html setup
 		$('body').prepend(container);
 		container.append(canvas); 
-		canvas.width = SCREEN_WIDTH; 
+		canvas.width = SCREEN_WIDTH/2; 
 		canvas.height = SCREEN_HEIGHT;
 
 		// Set main loop to run at 33 fps
